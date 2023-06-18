@@ -21,14 +21,14 @@
 
         <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
             <li><a href="index.php" class="nav-link px-2 link-secondary">Главная</a></li>
-            <li><a href="#" class="nav-link px-2">Функции</a></li>
+            <li><a href="login.php" class="nav-link px-2">Функции</a></li>
             <li><a href="#" class="nav-link px-2">FAQ</a></li>
             <li><a href="about.php" class="nav-link px-2">О нас</a></li>
         </ul>
 
         <div class="col-md-3 text-end">
-            <button type="button" class="btn btn-outline-primary me-2">Войти</button>
-            <button type="button" class="btn btn-primary">Зарегистрироваться</button>
+            <button type="button" onclick="location='login.php'" class="btn btn-outline-primary me-2">Войти</button>
+            <button type="button" onclick="location='auth.php'" class="btn btn-primary">Зарегистрироваться</button>
         </div>
         <!-- </header>
         <a href="index.php">Главная</a>
