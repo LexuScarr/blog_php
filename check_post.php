@@ -1,17 +1,28 @@
 <?php
-$name = $_POST['username'];
-$email = $_POST['email'];
-$pass = $_POST['password'];
+$name = filter_var(trim($_POST['username']));
+$login = filter_var(trim($_POST['email']));
+$pass = filter_var(trim($_POST['password']));
 
-if (trim($name) == "" || strlen(trim($name)) <= 1) {
-    $error_name = "Неверное имя";
-} else if (trim($email) == "" || trim($pass) == "" || trim($_POST['message']) == "") {
-    $error = "введите данные";
-} else {
-    // $_POST['password'] = md5($pass);
-    // echo "<h1> Все данные </h1>";
-    // foreach ($_POST as $key => $value)
-    //     echo "<p>$value</p>";
-    header('Location: about.php');
-    exit;
-}
+
+
+// if (trim($name) == "" || strlen(trim($name)) <= 1) {
+//     $error_name = "Неверное имя";
+//     exit();
+// } else if (trim($login) == "" || trim($pass) == "" || trim($_POST['name']) == "") {
+//     $error = "введите данные";
+//     exit();
+// }
+// else {
+//     header('Location: about.php');
+//     exit;
+// }
+
+$pass = md5($pass);
+
+$mysql = new mysqli('localhost', 'root', '', 'register_bd');
+$mysql->query("INSERT INTO `users` (`login`, `name`, `pass`) VALUES('$login', '$name', '$pass')");
+
+$mysql->close();
+
+header('Location: login.php');
+exit();

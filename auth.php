@@ -1,22 +1,21 @@
 <?php
 $title = "auth";
 require_once "blocks/header.php";
-
 ?>
 <main class="container mt-4">
-    <form>
-        <h1 class="h3 mb-3 fw-normal">Пожалуйста, войдите</h1>
+    <form action="check_post.php" method="post">
+        <h1 class="h3 mb-3 fw-normal">Пожалуйста, зарегистрируйтесь</h1>
 
         <div class="form-floating">
-            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+            <input type="login" name="email" class="form-control" id="floatingInput" placeholder="name@example.com">
             <label for="floatingInput">Адрес эл. почты</label>
         </div>
         <div class="form-floating mt-4">
-            <input type="name" class="form-control" id="floatingInput" placeholder="username">
+            <input type="username" name="username" class="form-control" id="floatingInput" placeholder="username">
             <label for="floatingInput">Ваш никнейм</label>
         </div>
         <div class="form-floating mt-4">
-            <input type="password" class="form-control" id="floatingPassword" placeholder="Пароль">
+            <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Пароль">
             <label for="floatingPassword">Пароль</label>
         </div>
 
