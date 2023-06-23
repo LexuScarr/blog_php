@@ -25,11 +25,16 @@
             <li><a href="#" class="nav-link px-2">FAQ</a></li>
             <li><a href="about.php" class="nav-link px-2">О нас</a></li>
         </ul>
-
-        <div class="col-md-3 text-end">
-            <button type="button" onclick="location='login.php'" class="btn btn-outline-primary me-2">Войти</button>
-            <button type="button" onclick="location='auth.php'" class="btn btn-primary">Зарегистрироваться</button>
-        </div>
+        <?php
+        if ($_COOKIE['user'] == '') :
+        ?>
+            <div class="col-md-3 text-end">
+                <button type="button" onclick="location='login.php'" class="btn btn-outline-primary me-2">Войти</button>
+                <button type="button" onclick="location='auth.php'" class="btn btn-primary">Зарегистрироваться</button>
+            </div>
+        <?php else : ?>
+            <p><?= $_COOKIE['user'] ?> чтобы выйти нажмите <a href="exit.php">Здесь</a></p>
+        <?php endif; ?>
         <!-- </header>
         <a href="index.php">Главная</a>
         <a href="about.php">Про нас</a> -->
