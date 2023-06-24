@@ -1,10 +1,25 @@
 <?php
 $title = "auth";
 require_once "blocks/header.php";
+
+// Проверка наличия параметра "error" в URL
+if (isset($_GET['error'])) {
+    $error = $_GET['error'];
+    if ($error === 'user_exists') {
+        $errorMessage = 'Пользователь с таким логином уже существует.';
+    }
+}
 ?>
-<main class="container mt-4">
+
+<main class="container d-flex justify-content-center">
     <form action="check_post.php" method="post" onsubmit="return validateForm()">
         <h1 class="h3 mb-3 fw-normal">Пожалуйста, зарегистрируйтесь</h1>
+
+        <?php if (isset($errorMessage)) { ?>
+            <div class="alert alert-danger" role="alert">
+                <?php echo $errorMessage; ?>
+            </div>
+        <?php } ?>
 
         <div class="form-floating">
             <input type="login" name="login" class="form-control" id="loginInput" placeholder="login">

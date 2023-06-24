@@ -6,10 +6,6 @@ $pass = filter_var(trim($_POST['password']));
 
 $pass = md5($pass);
 
-// $mysql = new mysqli('localhost', 'root', '', 'register_bd');
-// $result = $pdo->query("SELECT * FROM `users` WHERE `login` = '$login' AND `pass` = '$pass'");
-// $mysql->query("INSERT INTO `users` (`login`, `name`, `pass`) VALUES('$login', '$name', '$pass')");
-
 $stmt = $pdo->prepare("SELECT * FROM `users` WHERE `login` = :login AND `pass` = :pass");
 $stmt->execute(array('login' => $login, 'pass' => $pass));
 $user = $stmt->fetch(PDO::FETCH_ASSOC);

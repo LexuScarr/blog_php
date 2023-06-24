@@ -7,7 +7,7 @@ require_once "blocks/header.php";
 if ($_COOKIE['user'] == '') :
 ?>
 
-    <main class="container mt-4">
+    <main class="container d-flex justify-content-center">
         <form action="check_auth.php" method="post">
             <h1 class="h3 mb-3 fw-normal">Пожалуйста, войдите</h1>
 
