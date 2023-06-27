@@ -4,7 +4,7 @@ require_once "blocks/header.php";
 ?>
 
 <?php
-if ($_COOKIE['user'] == '') :
+if ($_COOKIE['user'] == '') : // Если пользователь не авторизован, то выводим форму для авторизации
 ?>
 
     <main class="container d-flex justify-content-center">
@@ -30,6 +30,7 @@ if ($_COOKIE['user'] == '') :
             <button class="btn btn-primary w-100 py-2" type="submit">Войти</button>
         </form>
     <?php else : ?>
+        <!-- Если пользователь авторизован -->
         <p>Привет <?= $_COOKIE['user'] ?> чтобы выйти нажмите <a href="exit.php">Здесь</a></p>
     <?php endif; ?>
 

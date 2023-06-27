@@ -50,7 +50,7 @@ if (isset($_GET['error'])) {
         var passwordError = document.getElementById('passwordError');
         var isValid = true;
 
-        // Проверка поля "email"
+        // Проверка поля "login"
         if (loginInput.value === '') {
             loginError.innerHTML = 'Пожалуйста, введите логин.';
             isValid = false;

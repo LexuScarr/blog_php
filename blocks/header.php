@@ -30,11 +30,16 @@
             <li><a href="/login.php" class="nav-link px-2">Функции</a></li>
             <li><a href="#" class="nav-link px-2">FAQ</a></li>
             <li><a href="/about.php" class="nav-link px-2">О нас</a></li>
-            <?php if ($_COOKIE['user'] == 'admin1') : ?>
+            <?php
+            // Проверяем, если у пользователя установлена cookie с именем пользователя равным 'admin1'
+            if ($_COOKIE['user'] == 'admin1') :
+            ?>
                 <li><a href="/admin/admin.php" class="nav-link px-2">admin panel</a></li>
             <?php endif; ?>
         </ul>
+
         <?php
+        // Проверяем, если у пользователя не установлена cookie с именем пользователя
         if ($_COOKIE['user'] == '') :
         ?>
             <div class="col-md-3 text-end">

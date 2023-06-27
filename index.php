@@ -1,21 +1,26 @@
 <?php
+require_once "function/connect.php";
 $title = "glav";
 require_once "blocks/header.php";
-require_once "function/connect.php";
 ?>
 <?php
-$stmt = $pdo->prepare("SELECT *, UNIX_TIMESTAMP(publish_time) AS publish_timestamp FROM `glav` ORDER BY publish_time ASC");
+// Подготавливаем SQL запрос для получения данных из таблицы "glav" и сортируем по времени публикации
+$stmt = $pdo->prepare("SELECT *, UNIX_TIMESTAMP(publish_time) AS publish_timestamp FROM `glav` ORDER BY publish_time DESC");
+
+// Выполняем запрос
 $stmt->execute();
+
+// Получаем все строки результата в виде ассоциативного массива
 $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <main>
 
     <section class="py-5 text-center container">
-        <div class="row py-lg-5">
-            <div class="col-lg-6 col-md-8 mx-auto">
+        <div class="row py-lg-5 justify-content-center">
+            <div class="col-lg-6 col-md-8 mx-auto text-center">
                 <h1 class="fw-light">LexHub</h1>
-                <p class="lead text-body-secondary">Что-то краткое и ведущее о коллекции ниже - ее содержание, создатель и т.д. Сделайте ее короткой и интересной, но не слишком короткой, чтобы люди просто не пропустили ее полностью.</p>
+                <p class="lead text-body-secondary">Первый проект на PHP. Постарался сделать вывод и редактирование информации из базы данных.</p>
                 <p>
                     <a href="#" class="btn btn-primary my-2">Главный</a>
                     <a href="#" class="btn btn-secondary my-2">Вторичное</a>
