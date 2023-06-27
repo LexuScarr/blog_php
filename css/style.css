@@ -2,8 +2,8 @@ form {
   width: 500px;
 }
 .card-img-top {
-  width: 100%;
-  height: auto; /* Замените на желаемую высоту */
+  width: 250px;
+  height: 350px;
   object-fit: cover;
 }
 .container {

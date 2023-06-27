@@ -4,7 +4,7 @@ require_once "blocks/header.php";
 require_once "function/connect.php";
 ?>
 <?php
-$stmt = $pdo->prepare("SELECT *, UNIX_TIMESTAMP(publish_time) AS publish_timestamp FROM `glav`");
+$stmt = $pdo->prepare("SELECT *, UNIX_TIMESTAMP(publish_time) AS publish_timestamp FROM `glav` ORDER BY publish_time ASC");
 $stmt->execute();
 $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
@@ -37,7 +37,6 @@ $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
                                         <button type="button" class="btn btn-sm btn-outline-secondary">Смотреть</button>
-                                        <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Редактировать</button> -->
                                     </div>
                                     <small class="text-body-secondary"><?php echo getTimeElapsed($resu['publish_timestamp']); ?></small>
                                 </div>
