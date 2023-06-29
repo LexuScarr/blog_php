@@ -16,6 +16,14 @@
 </head>
 
 <body>
+    <?php
+    // Check if the "user" key is defined in the $_COOKIE array
+    if (isset($_COOKIE['user'])) {
+        $user = $_COOKIE['user'];
+    } else {
+        $user = ''; // Set a default value if the key is not defined
+    }
+    ?>
     <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom text-center">
         <div class="col-md-3 mb-2 mb-md-0">
             <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
@@ -32,7 +40,8 @@
             <li><a href="/about.php" class="nav-link px-2">О нас</a></li>
             <?php
             // Проверяем, если у пользователя установлена cookie с именем пользователя равным 'admin1'
-            if ($_COOKIE['user'] == 'admin1') :
+
+            if ($user == 'admin1') :
             ?>
                 <li><a href="/admin/admin.php" class="nav-link px-2">admin panel</a></li>
             <?php endif; ?>
@@ -40,7 +49,7 @@
 
         <?php
         // Проверяем, если у пользователя не установлена cookie с именем пользователя
-        if ($_COOKIE['user'] == '') :
+        if ($user == '') :
         ?>
             <div class="col-md-3 text-end">
                 <button type="button" onclick="location='/login.php'" class="btn btn-outline-primary me-2">Войти</button>

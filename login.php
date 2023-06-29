@@ -4,7 +4,7 @@ require_once "blocks/header.php";
 ?>
 
 <?php
-if ($_COOKIE['user'] == '') : // Если пользователь не авторизован, то выводим форму для авторизации
+if (!isset($_COOKIE['user']) || empty($_COOKIE['user'])) : // Если пользователь не авторизован, то выводим форму для авторизации
 ?>
 
     <main class="container d-flex justify-content-center">
